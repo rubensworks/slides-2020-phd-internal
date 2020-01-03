@@ -44,17 +44,124 @@
     </section>
     
     <section id="start" class="slide" inlist="" rel="schema:hasPart" resource="#start">
-        <h2 property="schema:name" class="big">TODO</h2>
+        <h2 property="schema:name" class="big">A need for Evolving Knowledge Graphs</h2>
         <ul>
-            <li>...</li>
+            <li class="next"><h3>Research focuses on storing and querying static Knowledge Graphs</h3></li>
+            <li class="next">
+                <h3>Some of that knowledge evolves over time</h3>
+                <ul>
+                    <li>Biomedical information <em>&rarr; tracking diseases</em></li>
+                    <li>Concept drift <em>&rarr; discovering the true meaning of old books</em></li>
+                    <li>Highway sensors <em>&rarr; avoiding traffic jams</em></li>
+                </ul>
+            </li>
+            <li class="next"><h3>More research is needed to fully exploit this evolving knowledge</h3></li>
         </ul>
     </section>
-
-    <section id="conclusion" class="slide" inlist="" rel="schema:hasPart" resource="#conclusion">
-      <h2 property="schema:name">TODO</h2>
+    
+    <section id="research-question" class="slide" inlist="" rel="schema:hasPart" resource="#research-question" style="text-align: center; padding-top: 6em">
+        <h2 property="schema:name" class="big">How to <em>store</em> and <em>query</em><br />evolving knowledge graphs<br />on the Web?</h2>
+    </section>
+    
+    <section id="challenges" class="slide" inlist="" rel="schema:hasPart" resource="#challenges" style="font-size: 0.9em">
+        <h2 property="schema:name">I focus on four challenges</h2>
+        <ul>
+            <li class="next"><h3>Experimentation requires <em>representative</em> evolving data.</h3>
+                <span class="indent">Chapter 2: Generating Synthetic Evolving Data</span></li>
+            <li class="next"><h3>Indexing evolving data involves a <em>trade-off</em> between<br /><em>storage efficiency</em> and <em>lookup efficiency</em>.</h3>
+                <span class="indent">Chapter 3: Storing Evolving Data</span></li>
+            <li class="next"><h3>Web interfaces are highly <em>heterogeneous</em>.</em>.</h3>
+                <span class="indent">Chapter 4: Querying a heterogeneous Web</span></li>
+            <li class="next"><h3>Publishing <em>evolving</em> data via a <em>queryable interface</em><br />involves <em>continuous</em> updates to clients.</h3>
+                <span class="indent">Chapter 5: Querying Evolving Data</span></li>
+        </ul>
+    </section>
+    
+    <section id="chapter-2" class="slide" inlist="" rel="schema:hasPart" resource="#chapter-2">
+        <h2 property="schema:name">Generating Synthetic Evolving Data</h2>
+        <ul>
+            <li class="next"><em><h3>"Can population distribution data be used to generate realistic synthetic public transport networks and scheduling?"</h3></em></li>
+        </ul>
+        <center><img src="img/logo-podigg-main.png" style="height: 100px"/></center>
+        <strong>Contributions:</strong>
+        <ul>
+            <li>Mimicking algorithm for generating public transport networks</li>
+            <li>Open-source implementation: PoDiGG</li>
+            <li>Realism and performance evaluation</li>
+        </ul>
+    </section>
+    
+    <section id="chapter-3" class="slide" inlist="" rel="schema:hasPart" resource="#chapter-3">
+        <h2 property="schema:name">Storing Evolving Data</h2>
+        <ul>
+            <li class="next"><em><h3>"How can we store RDF archives to enable efficient<br />versioned triple pattern queries with offsets?"</h3></em></li>
+        </ul>
+        <center><img src="img/ostrich-square.png" style="height: 175px"/></center>
+        <strong>Contributions:</strong>
+        <ul>
+            <li>Versioned storage mechanism and triple pattern query algorithms</li>
+            <li>Open-source implementation: OSTRICH</li>
+            <li>Performance evaluation</li>
+        </ul>
+    </section>
+    
+    <section id="chapter-4" class="slide" inlist="" rel="schema:hasPart" resource="#chapter-4">
+        <h2 property="schema:name">Querying a heterogeneous Web</h2>
+        <ul>
+            <li class="next"><em><h3>Solving the need for flexible software in Web query research</h3></em></li>
+        </ul>
+        <center><img src="img/comunica.svg" style="height: 175px"/></center>
+        <strong>Contributions:</strong>
+        <ul>
+            <li>Modular actor-mediator-bus architecture</li>
+            <li>Open-source implementation: Comunica</li>
+            <li>Performance evaluation</li>
+        </ul>
+    </section>
+    
+    <section id="chapter-5" class="slide" inlist="" rel="schema:hasPart" resource="#chapter-5">
+        <h2 property="schema:name">Querying Evolving Data</h2>
+        <ul>
+            <li class="next"><em><h3>"Can clients use volatility knowledge to perform more efficient continuous SPARQL query evaluation by polling for data?"</h3></em></li>
+        </ul>
+        <center><img src="img/tpfqs.png" style="height: 175px"/></center>
+        <strong>Contributions:</strong>
+        <ul>
+            <li>Publication approach and continuous client-side query algorithm</li>
+            <li>Open-source implementation: TPF Query Streamer</li>
+            <li>Performance evaluation</li>
+        </ul>
+    </section>
+    
+    <section id="research-answer" class="slide" inlist="" rel="schema:hasPart" resource="#research-answer">
+      <h2 property="schema:name">Research Answer</h2>
+      <em><h3>How to <em>store</em> and <em>query</em> evolving knowledge graphs on the Web?</h3></em>
       <ul>
-          <li>TODO</li>
+          <li><strong>Type of data</strong>: Low volatility (order of minutes or slower)</li>
+          <li><strong>Server interface</strong>: Low-cost polling-based interface</li>
+          <li><strong>Server storage</strong>: Hybrid snapshot/delta/timestamp-based storage system</li>
+          <li><strong>Client</strong>: Intelligent hypermedia-enabled polling query engine</li>
+          <li><strong>Experimentation</strong>: Using synthetic public transport datasets</li>
       </ul>
+      &rarr; Decentralized publishing and querying of evolving knowledge at a low cost.
+    </section>
+
+    <section id="challenges" class="slide" inlist="" rel="schema:hasPart" resource="#challenges">
+      <h2 property="schema:name">My contributions are not the <em>only</em> answer</h2>
+      <strong>Open challenges:</strong>
+      <ul>
+          <li>Different storage trade-offs</li>
+          <li>Incorporating the meaning of data during versioned querying</li>
+          <li>Knowledge Graph volatility</li>
+          <li>Standardization efforts</li>
+          <li>Large-scale decentralization</li>
+      </ul>
+    </section>
+    
+    <section id="separator-1" class="slide" inlist="" rel="schema:hasPart" resource="#separator-1" style="text-align: center; padding-top: 7em">
+      <hr />
+      <h2 property="schema:name">Backup slides</h2>
+      <hr />
     </section>
 
     <footer>
