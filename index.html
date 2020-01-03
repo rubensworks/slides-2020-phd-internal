@@ -255,6 +255,80 @@
         <li><a href="#index-6">6. Conclusions</a></li>
       </ul>
     </section>
+    
+    <section id="backup-2-generalizable" class="slide" inlist="" rel="schema:hasPart" resource="#backup-2-generalizable">
+      <h2 property="schema:name"><a href="#index-2">2.1.</a> Can the approach be generalized?</h2>
+      <em>Yes, thanks to modularity of phases (region, stops, edges, routes, trips)</em>
+      <br />
+      <h3>Generalization is possible on 2 levels:</h3>
+      <ul>
+          <li>
+              Generating public transport networks without population distributions<br />
+              <em class="indent">But with e.g. light polution</em>
+          </li>
+          <li>
+              Generate something else than public transport networks<br />
+              <em class="indent">E.g. reuse edge generator for synthetic artiries in biomedical domains</em>
+          </li>
+      </ul>
+    </section>
+    
+    <section id="backup-2-deterministic" class="slide" inlist="" rel="schema:hasPart" resource="#backup-2-deterministic">
+      <h2 property="schema:name"><a href="#index-2">2.2.</a> Is the generator deterministic?</h2>
+      <em>Yes, using random seed</em>
+      <br /><br />
+      <ul>
+          <li>Generators accept <code>seed</code> (integer) parameter.</li>
+          <li>Random values generated using this seed. (<a href="https://github.com/PoDiGG/podigg/blob/ce8853a6d431e52685ecf7ef5a68532114d5116e/lib/stop/RandomStopsGenerator.js#L16-L19">example</a>)</li>
+          <li>No multithreading</li>
+          <li>Fully deterministic (assuming no external exceptions)</li>
+      </ul>
+    </section>
+    
+    <section id="backup-2-coherence" class="slide" inlist="" rel="schema:hasPart" resource="#backup-2-coherence">
+      <h2 property="schema:name"><a href="#index-2">2.3.</a> Value of coherence evaluation</h2>
+      <em>Distance functions are indeed more valueable, but coherence is still important.</em>
+      <br />
+      Most existing benchmarks are too structured:
+      <center>
+          <img src="img/backup/2-coherence.png" style="height: 250px"/><br />
+          <small><em>Duan et al. "Apples and Oranges: A Comparison of RDF Benchmarks and Real RDF Datasets"</em></small>
+      </center>
+      My goal: proving that PoDiGG does not suffer from this problem.
+    </section>
+    
+    <section id="backup-2-equation-5-1" class="slide" inlist="" rel="schema:hasPart" resource="#backup-2-equation-5-1">
+      <h2 property="schema:name"><a href="#index-2">2.4.1.</a> Equation 5: Normalization is surprising</h2>
+      <center>
+          <img src="img/backup/2-equation-5.png" style="height: 80px"/><br />
+          <small><em>Equation 5 (page 48): Generic function for calculating distance between 2 sets of elements</em></small>
+      </center>
+      <ul>
+          <li>I <em>think</em> my goal was to normalize to 0-1 range.</li>
+          <li>Values from Table 4 (page 51) show values &gt; 1 &rarr; normalization is "wrong".</li>
+          <li>Denominator can be removed. (or do normalization with max distances)</li>
+      </ul>
+    </section>
+    
+    <section id="backup-2-equation-5-2" class="slide" inlist="" rel="schema:hasPart" resource="#backup-2-equation-5-2">
+      <h2 property="schema:name"><a href="#index-2">2.4.2.</a> Equation 5: Side-effects of closest element</h2>
+      <center>
+          <img src="img/backup/2-equation-4.png" style="height: 60px"/><br />
+          <small><em>Equation 4 (page 48): Function to determine closest element (used in Eq 5)</em></small>
+          <img src="img/backup/2-equation-4-effect.png" style="height: 150px"/><br />
+          <small><em>d(red, black) &lt; d(green, black). But green is intuitively more similar to black.</em></small>
+      </center>
+      Possible solution: normalize points to "central point"
+    </section>
+    
+    <section id="backup-2-realism" class="slide" inlist="" rel="schema:hasPart" resource="#backup-2-realism">
+      <h2 property="schema:name"><a href="#index-2">2.7.</a> Better than random not sufficient to claim realism</h2>
+      <ul>
+          <li>Root problem: Testing realism is tricky (impossible?).</li>
+          <li>No alternative algorithms &rarr; random generation is the "best" alternative.</li>
+          <li>Alternative method: user studies. (people's capabilities are questionable)</li>
+      </ul>
+    </section>
 
     <section id="index-3" class="slide index" inlist="" rel="schema:hasPart" resource="#index-3">
       <ul>
