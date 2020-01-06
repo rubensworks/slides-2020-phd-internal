@@ -46,16 +46,16 @@
     <section id="start" class="slide" inlist="" rel="schema:hasPart" resource="#start">
         <h2 property="schema:name" class="big">A need for Evolving Knowledge Graphs</h2>
         <ul>
-            <li class="next"><h3>Research focuses on storing and querying static Knowledge Graphs</h3></li>
             <li class="next">
-                <h3>Some of that knowledge evolves over time</h3>
+                <h3>Some knowledge evolves over time</h3>
                 <ul>
                     <li>Biomedical information <em>&rarr; tracking diseases</em></li>
                     <li>Concept drift <em>&rarr; discovering the true meaning of old books</em></li>
                     <li>Highway sensors <em>&rarr; avoiding traffic jams</em></li>
                 </ul>
             </li>
-            <li class="next"><h3>More research is needed to fully exploit this evolving knowledge</h3></li>
+            <li class="next"><h3>Research focuses on storing and querying static Knowledge Graphs</h3></li>
+            <li class="next"><h3>More research is needed to fully exploit evolving knowledge</h3></li>
         </ul>
     </section>
     
@@ -134,16 +134,15 @@
     </section>
     
     <section id="research-answer" class="slide" inlist="" rel="schema:hasPart" resource="#research-answer">
-      <h2 property="schema:name">Research Answer</h2>
+      <h2 property="schema:name">Overview</h2>
       <em><h3>How to <em>store</em> and <em>query</em> evolving knowledge graphs on the Web?</h3></em>
       <ul>
-          <li><strong>Type of data</strong>: Low volatility (order of minutes or slower)</li>
-          <li><strong>Server interface</strong>: Low-cost polling-based interface</li>
-          <li><strong>Server storage</strong>: Hybrid snapshot/delta/timestamp-based storage system</li>
-          <li><strong>Client</strong>: Intelligent hypermedia-enabled polling query engine</li>
-          <li><strong>Experimentation</strong>: Using synthetic public transport datasets</li>
+          <li><h3>Generating Synthetic Evolving Data</h3></li>
+          <li><h3>Storing Evolving Data</h3></li>
+          <li><h3>Querying a Heterogeneous Web</h3></li>
+          <li><h3>Querying Evolving Data</h3></li>
       </ul>
-      &rarr; Decentralized publishing and querying of evolving knowledge at a low cost.
+      &rarr; <strong>Decentralized publishing and querying of evolving knowledge.</strong>
     </section>
     
     <section id="separator-1" class="slide" inlist="" rel="schema:hasPart" resource="#separator-1" style="text-align: center; padding-top: 9em">
@@ -216,6 +215,19 @@
           <li>Standardization efforts</li>
           <li>Large-scale decentralization</li>
       </ul>
+    </section>
+    
+    <section id="backup-0-research-answer" class="slide" inlist="" rel="schema:hasPart" resource="#backup-0-research-answer">
+      <h2 property="schema:name"><a href="#index-0">0.4.</a> Research Answer</h2>
+      <em><h3>How to <em>store</em> and <em>query</em> evolving knowledge graphs on the Web?</h3></em>
+      <ul>
+          <li><strong>Type of data</strong>: Low volatility (order of minutes or slower)</li>
+          <li><strong>Server interface</strong>: Low-cost polling-based interface</li>
+          <li><strong>Server storage</strong>: Hybrid snapshot/delta/timestamp-based storage system</li>
+          <li><strong>Client</strong>: Intelligent hypermedia-enabled polling query engine</li>
+          <li><strong>Experimentation</strong>: Using synthetic public transport datasets</li>
+      </ul>
+      &rarr; Decentralized publishing and querying of evolving knowledge at a low cost.
     </section>
     
     <section id="index-1" class="slide index" inlist="" rel="schema:hasPart" resource="#index-1">
@@ -337,6 +349,190 @@
         <li><a href="#index-4">4. Querying a heterogeneous Web</a></li>
         <li><a href="#index-5">5. Querying Evolving Data</a></li>
         <li><a href="#index-6">6. Conclusions</a></li>
+      </ul>
+    </section>
+    
+    <section id="backup-3-storage" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-storage">
+      <h2 property="schema:name"><a href="#index-3">3.2.</a> What is stored?</h2>
+      <img src="img/backup/3-storage.svg" style="height: 400px" style="float: right"/>
+      <ul style="display: block; float: left;">
+          <li>Initial snapshot</li>
+          <li>Aggregated deltas</li>
+          <li>Indexes per delta</li>
+          <li>Precalculated addition counts</li>
+          <li><em>Relative positions</em></li>
+          <li><em>Local change flags</em></li>
+      </ul>
+    </section>
+    
+    <section id="backup-3-spoindex" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-spoindex">
+      <h2 property="schema:name"><a href="#index-3">3.3.</a> Why use OSP index for S?O queries?</h2>
+      <em>No filtering required in OSP index compared to SPO index.</em>
+      <hr />
+      <center><strong>Query: S2 ? O2</strong></center>
+      <div style="width: 30%; float: left">
+          <table>
+              <thead style="font-weight: bold">
+              <tr><td>O</td><td>S</td><td>P</td></tr>
+              </thead>
+              <tr><td>O1</td><td>S1</td><td>P1</td></tr>
+              <tr><td>O1</td><td>S2</td><td>P2</td></tr>
+              <tr style="background-color: green"><td>O2</td><td>S2</td><td>P1</td></tr>
+              <tr style="background-color: green"><td>O2</td><td>S2</td><td>P2</td></tr>
+              <tr><td>O3</td><td>S1</td><td>P1</td></tr>
+              <tr><td>03</td><td>S3</td><td>P3</td></tr>
+          </table>
+      </div>
+      <div style="width: 30%; float: right">
+          <table>
+              <thead style="font-weight: bold">
+              <tr><td>S</td><td>P</td><td>O</td></tr>
+              </thead>
+              <tr><td>S1</td><td>P1</td><td>O1</td></tr>
+              <tr><td>S1</td><td>P1</td><td>O3</td></tr>
+              <tr style="background-color: green"><td>S2</td><td>P1</td><td>O2</td></tr>
+              <tr style="background-color: red"><td>S2</td><td>P2</td><td>O1</td></tr>
+              <tr style="background-color: green"><td>S2</td><td>P2</td><td>O2</td></tr>
+              <tr><td>S3</td><td>P3</td><td>O3</td></tr>
+          </table>
+      </div>
+    </section>
+    
+    <section id="backup-3-relativeposition" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-relativeposition">
+      <h2 property="schema:name"><a href="#index-3">3.4.</a> Relative position definition</h2>
+      <em>Assumption: triples are comparable in the context of an index (SPO, POS, OSP)</em>
+      <pre>
+T: set of all possible triples
+t: triple (t &in; T)
+D: delta (D &sube; R)
+p: triple pattern (T &rarr; True &or; False)
+
+relative_position(t, D, p) = count{t' | t' &in; D &and; p(t') &and; t' &lt; t}
+      </pre>
+    </section>
+    
+    <section id="backup-3-whylocalchange" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-whylocalchange" style="font-size: 0.9em">
+      <h2 property="schema:name"><a href="#index-3">3.5.</a> Why are local changes needed?</h2>
+      <em>Required for VM queries and during ingestion.</em>
+      <br />
+      <strong>View on one triple in a dataset:</strong>
+      <table>
+          <thead style="font-weight: bold">
+          <tr><td>Version</td><td>Type</td><td>Local change?</td></tr>
+          </thead>
+          <tr><td>0</td><td>Snapshot</td><td>/</td></tr>
+          <tr><td>1</td><td>-</td><td>F</td></tr>
+          <tr><td>2</td><td>+</td><td>T</td></tr>
+          <tr><td>3</td><td>-</td><td>F</td></tr>
+      </table>
+      <hr />
+      <strong>Queries:</strong>
+      <ul>
+          <li>Version 1, 3: Start snapshot, filter away deletion</li>
+          <li>Version 2: Start snapshot as-is (ignore local changes)</li>
+      </ul>
+    </section>
+    
+    <section id="backup-3-localchange" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-localchange">
+      <h2 property="schema:name"><a href="#index-3">3.6.</a> Local change definition</h2>
+      <em>Definition on page 27 was incomplete (example in Table 9 (page 76) is correct).</em>
+      <br />
+      <br />
+      <strike>Triples that revert a previous addition or deletion within the same delta chain, are called local changes.</strike>
+      <br />
+      <strong>Triples that revert a previous non-local-change (addition or deletion) within the same delta chain, are called local changes.</strong>
+      <br />
+      <br />
+      <a href="https://github.com/rdfostrich/ostrich/blob/082fd1d9a386e0b6959b3fe903ccd32e6bb897d7/src/main/cpp/patch/patch.cc#L54-L59"><em>Implementation</em></a>
+    </section>
+    
+    <section id="backup-3-proof" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-proof" style="font-size: 0.85em">
+      <h2 property="schema:name"><a href="#index-3">3.8.</a> Proof refers to functions, not defined</h2>
+      <em>Lines 13, 14, 15, 16, 2, 3, 11, 13, 20, 21, 22 (in order of mentions)</em>
+      <ul>
+<li><strong>array.offset(n)</strong>: A new array where all indexes are subtracted by n, where all negative indexes are removed.</li>
+<li><strong>array.peek()</strong>: array[0]</li>
+<li><strong>store.getDeletionsStream(tp, version, offsetTriple)</strong>: A new stream of all stored deletion triples matching the given triple pattern for the given version occuring after the given triple.</li>
+<li><strong>deletions.getOffset(triplepattern)</strong>: The relative position of the given triple pattern.</li>
+<li><strong>store.getSnapshot(version)</strong>: Returns the snapshot of the given version.</li>
+<li><strong>snapshot.query(triplepattern, offset)</strong>: Returns a new stream of all triples in the given snapshot matching the given triple pattern, where the streams starts with the given offset.</li>
+<li><strong>snapshot.getVersion()</strong>: The version the given snapshot was created for.</li>
+<li><strong>stream.count(tp)</strong>: The number of matching triples for the given triple pattern.</li>
+<li><strong>stream.offset(offset)</strong>: A new stream that has been advanced with offset elements.</li>
+      </ul>
+    </section>
+    
+    <section id="backup-3-ingestioncomplexity" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-ingestioncomplexity">
+      <h2 property="schema:name"><a href="#index-3">3.9.</a> Complexity of streaming ingestion</h2>
+      <pre>
+S: last snapshot
+A: additions to insert
+D: deletions to insert
+
+O(|S| + |A| + |D|)
+      </pre>
+      <em><a href="https://rdfostrich.github.io/article-jws2018-ostrich/#appendix-algorithms">Pseudocode in appendix</a></em>
+      <hr />
+      <em>Increase (Fig. 19, page 89) is caused by size of versions <a href="https://aic.ai.wu.ac.at/qadlod/bear.html">(~30M triples / version)</a></em>
+    </section>
+    
+    <section id="backup-3-medianqueries" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-medianqueries" style="font-size: 0.9em">
+      <h2 property="schema:name"><a href="#index-3">3.10.</a> Results: median over how many queries?</h2>
+      <strong>Two levels</strong> of result summarisation <em>within each query atom (VM, DM, VQ)</em>:
+      <ol>
+          <li>
+              <h3>Within each triple pattern category (S??, S?O, ...) (<a href="https://aic.ai.wu.ac.at/qadlod/bear.html">~50 queries each</a>)</h3>
+              Normal distribution &rarr; average
+              <em>(done by BEAR)</em>
+              <br />
+              Produces different figures in <a href="https://rdfostrich.github.io/article-jws2018-ostrich/#appendix">appendix</a>.
+          </li>
+          <li>
+              <h3>Across each triple pattern category</h3>
+              Non-normal distribution &rarr; median
+              <br />
+              Produces 3 overview figures.
+          </li>
+      </ol>
+    </section>
+    
+    <section id="backup-3-hypo3test" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-hypo3test">
+      <h2 property="schema:name"><a href="#index-3">3.12.</a> Statistical test for hypothesis 3</h2>
+      <ul>
+          <li>Each group (VM, DM, VQ) compared using <strong>independent two-group t-test</strong></li>
+          <li>
+              Independent because queries have different meaning within groups.
+              <br />
+              &rarr; Different number of instantiations (e.g. VM: times number of numbers)
+              <br />
+              &rarr; Different group sizes (dependent t-test will throw error)
+          </li>
+          <li><a href="https://github.com/rdfostrich/ostrich-bear-results/blob/master/test/hypo-cb.r"><em>Source code</em></a></li>
+      </ul>
+    </section>
+    
+    <section id="backup-3-hypo3test-assumptions" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-hypo3test-assumptions">
+      <h2 property="schema:name"><a href="#index-3">3.13.</a> Hypothesis 3: assumptions</h2>
+      <ul>
+          <li>Independent two-group t-test</li>
+          <li>Requires all groups to be normally distributed</li>
+          <li>I’ve added Kolmogorov-Smirnov to test normality &rarr; confirmed</li>
+          <li><a href="https://github.com/rdfostrich/ostrich-bear-results/commit/c13dd208566d3027ad540ad2f4c6554eb56e7164"><em>Commit</em></a></li>
+      </ul>
+    </section>
+    
+    <section id="backup-3-dm-offset" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-dm-offset">
+      <h2 property="schema:name"><a href="#index-3">3.14.</a> Offset for DM not explained</h2>
+      <ul>
+          <li>Unlike VM and VQ, no efficient algorithm</li>
+          <li>Naive algorithm: offset(n): call .next() n times</li>
+          <li>Offset not in constant time (As seen in Fig. 34, page 96)</li>
+          <li>
+              <center><img src="img/backup/3-dm-offset.svg" /><br />
+              <em>Fig 34. DM offset execution times.</em></center>
+          </li>
+          <li><a href="https://github.com/rdfostrich/ostrich/blob/master/src/main/cpp/controller/triple_delta_iterator.cc#L25-L29"><em>Source code</em></a></li>
+          <li>Possible improvement: extend relative positions for DM (storage increase)</li>
       </ul>
     </section>
 
