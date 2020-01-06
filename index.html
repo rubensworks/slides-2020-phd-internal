@@ -600,6 +600,62 @@ O(|S| + |A| + |D|)
         <li><a href="#index-6">6. Conclusions</a></li>
       </ul>
     </section>
+    
+    <section id="backup-5-formalization" class="slide" inlist="" rel="schema:hasPart" resource="#backup-5-formalization" style="font-size: 0.85em">
+      <h2 property="schema:name"><a href="#index-5">5.1.1.</a> TPF-QS Formalization</h2>
+      <em><a href="https://www.rubensworks.net/raw/publications/2018/on_the_semantics_of_tpf-qs_towards_publishing_and_querying_rdf_streams_at_web-scale.pdf">"On the Semantics of TPF-QS towards Publishing and Querying RDF Streams at Web-scale"</a></em>
+      <ul>
+          <li>
+              Formalization under RSP-QL reference model <em>(+ extensive experiments using CityBench)</em><br /><br />
+              <ul>
+                  <li>Stream publication</li>
+                  <li>
+                      Client-side windowing<br /><br />
+                      <ul>
+                          <li>Tumbling time-based window</li>
+                          <li>
+                              Windowing strategies:
+                              <ol>
+                                  <li>Mapping expire</li>
+                                  <li>Periodic</li>
+                              </ol>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+          </li>
+          <li><center><img src="img/backup/5-formal-example.png" style="width: 80%" /></center></li>
+      </ul>
+    </section>
+    
+    <section id="backup-5-formalization-compare" class="slide" inlist="" rel="schema:hasPart" resource="#backup-5-formalization-compare" style="font-size: 0.85em">
+      <h2 property="schema:name"><a href="#index-5">5.1.2.</a> TPF-QS Formalization: Comparison</h2>
+      <ul>
+          <li><center><img src="img/backup/5-formal-compare.png" style="width: 100%" /></center></li>
+      </ul>
+    </section>
+    
+    <section id="backup-5-assumptions" class="slide" inlist="" rel="schema:hasPart" resource="#backup-5-assumptions" style="font-size: 0.8em">
+      <h2 property="schema:name"><a href="#index-5">5.7.</a> Assumptions and use cases</h2>
+      <strong>Assumptions:</strong>
+      <ul>
+          <li>Data volatility is <em>predictable</em></li>
+          <li>Data volatility is <em>10 seconds or slower</em></li>
+      </ul>
+      <strong>Use cases:</strong>
+      <ul>
+          <li>Versioned datasets (DBpedia)</li>
+          <li>Sensors emitting at fixed rates (temperature)</li>
+          <li>Aggregations of sensor data (hourly, daily, ...)</li>
+          <li>Radio broadcast playlists</li>
+      </ul>
+      <strong>Out of scope:</strong>
+      <ul>
+          <li>Lightning strikes</li>
+          <li>Counting cars in traffic</li>
+          <li>Tweets</li>
+      </ul>
+    </section>
 
     <section id="index-6" class="slide index" inlist="" rel="schema:hasPart" resource="#index-6">
       <ul>
