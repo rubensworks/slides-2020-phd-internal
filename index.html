@@ -547,6 +547,47 @@ O(|S| + |A| + |D|)
         <li><a href="#index-6">6. Conclusions</a></li>
       </ul>
     </section>
+    
+    <section id="backup-4-comunica-configs" class="slide" inlist="" rel="schema:hasPart" resource="#backup-4-comunica-configs">
+      <h2 property="schema:name"><a href="#index-4">4.2.</a> Comunica configs</h2>
+      <ul>
+          <li>
+              <a href="https://github.com/comunica/comunica/blob/master/packages/actor-init-sparql/config/config-default.json"><code>@comunica/actor-init-sparql</code></a>: SPARQL query config (89% test suite)
+              <br />
+              140 packages, 3 main categories:
+              <ul>
+                  <li>SPARQL query operators: quad pattern, slice, join, filter, ...</li>
+                  <li>RDF parsing and serialization</li>
+                  <li>Source handlers, LD, TPF, SPARQL, RDFJS, HDT, OSTRICH</li>
+              </ul>
+          </li>
+          <li><code>@comunica/actor-init-sparql-file</code>: Queries local RDF files</li>
+          <li><code>@comunica/actor-init-sparql-rdfjs</code>: Queries in-memory RDFJS datasets</li>
+          <li><code>@comunica/actor-init-sparql-hdt</code>: Queries HDT files</li>
+          <li><code>@comunica/actor-init-sparql-ostrich</code>: Queries OSTRICH datasets</li>
+          <li>LDflex config: Query operators needed for LDflex, Solid HTTP actor</li>
+          <li>GraphQL-LD config: Query operators needed for GraphQL-LD, Solid HTTP actor</li>
+          <li>rdf-parse: RDF parsing package</li>
+          <li>rdf-dereference: RDF dereferencing package</li>
+      </ul>
+    </section>
+    
+    <section id="backup-4-federation" class="slide" inlist="" rel="schema:hasPart" resource="#backup-4-federation">
+      <h2 property="schema:name"><a href="#index-4">4.4.</a> Federation</h2>
+      <ul>
+          <li>
+              Algorithm from TPF client (<em>Triple Pattern Fragments: a Low-cost Knowledge Graph Interface for the Web, Verborgh et. al.</em>)
+              <ul>
+                  <li>Source selection at query time</li>
+                  <li>Generalization: TPF interfaces &rarr; sources triple/quad pattern access</li>
+                  <li>Drill down queries to quad pattern level</li>
+                  <li>At quad pattern level: union across all sources</li>
+              </ul>
+          </li>
+          <li><a href="https://github.com/comunica/comunica/blob/master/packages/actor-rdf-resolve-quad-pattern-federated/lib/FederatedQuadSource.ts#L86-L111">Optimization: cache empty patterns</a></li>
+          <li></li>
+      </ul>
+    </section>
 
     <section id="index-5" class="slide index" inlist="" rel="schema:hasPart" resource="#index-5">
       <ul>
