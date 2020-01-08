@@ -38,7 +38,7 @@
           <li class="current"><a href="https://www.rubensworks.net/">Ruben Taelman</a></li>
       </ul>
       <p class="author">
-          Advisors: prof. <a href="https://ruben.verborgh.org/">dr. ir. Ruben Verborgh</a>, dr. Miel Vander Sande
+          Advisors: <a href="https://ruben.verborgh.org/">prof. dr. ir. Ruben Verborgh</a>, <a href="#">dr. Miel Vander Sande</a>
       </p>
       <p class="affiliation"><a href="http://idlab.technology/">Ghent University – imec – IDLab, Belgium</a></p>
     </section>
@@ -537,6 +537,24 @@ O(|S| + |A| + |D|)
           <li>Possible improvement: extend relative positions for DM (storage increase)</li>
       </ul>
     </section>
+    
+    <section id="backup-3-exampletable9" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-exampletable9">
+      <h2 property="schema:name"><a href="#index-3">3.15.</a> How is Table 9 stored in a B+tree?</h2>
+      <ul>
+          <li>
+              <center><img src="img/backup/3-example-table9.svg" width="43%" /><br />
+          </li>
+      </ul>
+    </section>
+    
+    <section id="backup-3-whysinglechain" class="slide" inlist="" rel="schema:hasPart" resource="#backup-3-whysinglechain">
+      <h2 property="schema:name"><a href="#index-3">3.16.</a> Why only a single delta chain?</h2>
+      <ul>
+          <li>Development in C++ &rarr; already took a <strong>long</strong> time</li>
+          <li>Master thesis student extended this: "<a href="https://lib.ugent.be/fulltxt/RUG01/002/495/106/RUG01-002495106_2018_0001_AC.pdf">Reducing storage requirements of multi-version graph databases using forward and reverse deltas</a>"</li>
+          <li>Challenges in query algorithms: DM, VQ</li>
+      </ul>
+    </section>
 
     <section id="index-4" class="slide index" inlist="" rel="schema:hasPart" resource="#index-4">
       <ul>
@@ -588,6 +606,28 @@ O(|S| + |A| + |D|)
           </li>
           <li><a href="https://github.com/comunica/comunica/blob/master/packages/actor-rdf-resolve-quad-pattern-federated/lib/FederatedQuadSource.ts#L86-L111">Optimization: cache empty patterns</a></li>
           <li></li>
+      </ul>
+    </section>
+    
+    <section id="backup-4-adoption" class="slide" inlist="" rel="schema:hasPart" resource="#backup-4-adoption" style="font-size: 0.85em">
+      <h2 property="schema:name"><a href="#index-4">4.6.</a> Comunica adoption</h2>
+      <ul>
+          <li>Researchers: mostly ourselves, Nantes attempted &rarr; more docs and tutorials</li>
+          <li>Developers from Solid community</li>
+          <li>
+              Stats:
+              <ul>
+                  <li>GitHub stars: 112</li>
+                  <li>GitHub usages: 88</li>
+                  <li>GitHub forks: 17</li>
+                  <li>NPM: ~1000 weekly downloads</li>
+                  <li>Issues: 594 (77 open)</li>
+                  <li>Contributors: 14</li>
+              </ul>
+          </li>
+          <li>Used in abstraction layers: LDflex, GraphQL-LD</li>
+          <li>Usage for SPARQL 1.2</li>
+          <li>Collaboration with WU Vienna</li>
       </ul>
     </section>
 
@@ -669,6 +709,28 @@ O(|S| + |A| + |D|)
         <li><a href="#index-5">5. Querying Evolving Data</a></li>
         <li class="current"><a href="#index-6">6. Conclusions</a></li>
       </ul>
+    </section>
+    
+    <section id="backup-6-links" class="slide" inlist="" rel="schema:hasPart" resource="#backup-5-links" style="font-size: 0.8em">
+      <h2 property="schema:name"><a href="#index-6">6.1.</a> Links to other people's work</h2>
+      <div style="width: 50%; float: left">
+          <strong>Within lab:</strong>
+          <ul>
+              <li>PoDiGG: Linked Open Data Interfaces</li>
+              <li>Versioning: Master thesis student(s)</li>
+              <li>Querying: Planner.js, LDflex, KNoWS website</li>
+              <li>Query evolving: Linked Open Data Interfaces</li>
+              <li>Future: Mappings, reasoning</li>
+          </ul>
+      </div>
+      <div style="width: 50%; float: right">
+          <strong>Outside lab:</strong>
+          <ul>
+              <li>Versioning: NII, Japan (Hideaki Takeda)</li>
+              <li>Querying: WU, Austria (Sabrina Kirrane, Axel Polleres)</li>
+              <li>Querying: Inrupt</li>
+          </ul>
+      </div>
     </section>
 
     <footer>
